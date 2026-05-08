@@ -314,37 +314,60 @@ function App() {
                   <span>+49 (160) 57-57-277</span>
                 </a>
 
-                <div className="socialLinks">
-                  <a href="#" aria-label="WhatsApp">
-                    <FaWhatsapp />
-                  </a>
+              <div className="socialLinks">
+  <a
+    href="https://wa.me/491605757277"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="WhatsApp"
+  >
+    <FaWhatsapp />
+  </a>
 
-                  <a href="#" aria-label="Telegram">
-                    <FaTelegramPlane />
-                  </a>
+  <a
+    href="https://t.me/TOLKER_de"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Telegram"
+  >
+    <FaTelegramPlane />
+  </a>
+  <a
+    href="https://www.facebook.com/tolker.de"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Facebook"
+  >
+    <FaFacebook />
+  </a>
+  <a
+    href="#"
+    onClick={(e) => e.preventDefault()}
+    aria-label="Instagram"
+  >
+    <FaInstagram />
+  </a>
 
-                  <a href="#" aria-label="Instagram">
-                    <FaInstagram />
-                  </a>
 
-                  <a href="#" aria-label="Facebook">
-                    <FaFacebook />
-                  </a>
+  <a
+    href="#"
+    onClick={(e) => e.preventDefault()}
+    aria-label="LinkedIn"
+  >
+    <FaLinkedin />
+  </a>
 
-                  <a href="#" aria-label="LinkedIn">
-                    <FaLinkedin />
-                  </a>
+  <a
+    href={vcardFile}
+    download
+    className="vcardButton"
+    aria-label={downloadLabel}
+  >
+    <FaDownload />
+    <span>{downloadLabel}</span>
+  </a>
+</div>
 
-                  <a
-                    href={vcardFile}
-                    download
-                    className="vcardButton"
-                    aria-label={downloadLabel}
-                  >
-                    <FaDownload />
-                    <span>{downloadLabel}</span>
-                  </a>
-                </div>
               </div>
             </div>
 
