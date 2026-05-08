@@ -217,7 +217,9 @@ html {
 /* HERO */
 
 .heroSection {
-  /*min-height: calc(100vh - 100px);*/
+  position: relative;
+  overflow: hidden;
+
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
   align-items: center;
@@ -1390,6 +1392,11 @@ background: #f4f5fb;
 
     padding-top: 48px;
     padding-bottom: 62px;
+
+    position: relative;
+
+  overflow: hidden;
+
   }
 
   .heroCard {

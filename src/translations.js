@@ -73,7 +73,8 @@ reviewHelpItems: [
 reviewAboutClosing:
   'Das Team von TOLKER begleitet Sie auf jedem Schritt und hilft dabei, sprachliche und kommunikative Barrieren ruhig, professionell und respektvoll zu überwinden.',
 importantNote: "wir führen ausschließlich nicht beglaubigte Übersetzungen durch.",
-importantWord: "Wichtig:"
+importantWord: "Wichtig:",
+openingRibbon: "Eröffnung 02.06"
 },
 
 ru: {
@@ -151,6 +152,7 @@ reviewAboutClosing:
   'Команда TOLKER рядом с Вами на каждом этапе, помогая преодолевать языковые и коммуникационные барьеры спокойно, профессионально и с уважением ко всем сторонам.',
 importantNote: "мы выполняем только незаверенные переводы.",
 importantWord: "Важно:",
+openingRibbon: "Открытие 02.06"
 },
   uk: {
     reviewsSideTitle: 'Чому нам довіряють',
@@ -226,7 +228,8 @@ reviewHelpItems: [
 reviewAboutClosing:
   'Команда TOLKER поруч із Вами на кожному етапі, допомагаючи долати мовні та комунікаційні бар’єри спокійно, професійно та з повагою до всіх сторін.',
 importantNote: "ми виконуємо лише незавірені переклади.",
-importantWord: "Важливо:"
+importantWord: "Важливо:",
+openingRibbon: "Відкриття 02.06"
 },
   en: {
     reviewsSideTitle: 'Why clients trust us',
@@ -302,7 +305,8 @@ reviewHelpItems: [
 reviewAboutClosing:
   'The TOLKER team is by your side every step of the way, helping you overcome language and communication barriers calmly, professionally, and respectfully.',
 importantWord: "Important:",
-importantNote: "we provide only non-certified translations."
+importantNote: "we provide only non-certified translations.",
+openingRibbon: "Opening 02.06",
 },
 }
 

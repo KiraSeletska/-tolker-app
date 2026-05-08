@@ -13,6 +13,8 @@ import logoLight from "./assets/bflite.png";
 import logoDark from "./assets/bfdark.png";
 import olesiaPortrait from "./assets/olesia-portrait.png";
 import { translations } from "./translations";
+import RibbonBanner from "./components/RibbonBanner";
+
 
 function App() {
   const getDefaultLanguage = () => {
@@ -139,6 +141,7 @@ function App() {
           <div className="heroCard">
             <img src={logo} alt="TOLKER" />
           </div>
+          <RibbonBanner theme={theme} text={t.openingRibbon} />
         </section>
 
         <section id="about" className="section cardSection">
