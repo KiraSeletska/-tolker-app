@@ -1,3 +1,10 @@
+.app.modalOpen header,
+.app.modalOpen main,
+.app.modalOpen .mobileQuickNav,
+.app.modalOpen .scrollTopButton {
+  filter: blur(10px);
+}
+
 .imageModal {
   position: fixed;
   inset: 0;
@@ -9,8 +16,6 @@
 
   padding: 24px;
   background: rgba(0, 0, 0, 0.18);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
 }
 
 .imageModalImg {
@@ -33,7 +38,6 @@
 
   border: none;
   border-radius: 999px;
-
   background: rgba(255, 255, 255, 0.16);
 
   display: flex;
@@ -41,14 +45,12 @@
   justify-content: center;
 
   cursor: pointer;
-
   padding: 0;
 }
 
 .imageModalClose::before,
 .imageModalClose::after {
   content: "";
-
   position: absolute;
 
   width: 18px;

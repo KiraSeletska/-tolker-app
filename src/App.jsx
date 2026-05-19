@@ -68,7 +68,7 @@ function App() {
   const downloadLabel = t.downloadVcard;
 
   return (
-    <div className={`app ${theme}`}>
+   <div className={`app ${theme} ${openedImage ? "modalOpen" : ""}`}>
       <header className="header">
         <a href="#home" className="logoLink">
           <div className="logoWrapper">
