@@ -33,7 +33,6 @@
 
 @media (max-width: 757px) {
   .scrollTopButton {
-    right: 16px;
-    bottom: 82px;
+  display: none;
   }
 }
