@@ -1,0 +1,78 @@
+.imageModal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 24px;
+  background: rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.imageModalImg {
+  max-width: min(92vw, 900px);
+  max-height: 88vh;
+
+  object-fit: contain;
+  border-radius: 18px;
+
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.75);
+}
+
+.imageModalClose {
+  position: fixed;
+  top: 18px;
+  right: 18px;
+
+  width: 44px;
+  height: 44px;
+
+  border: none;
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.16);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+
+  padding: 0;
+}
+
+.imageModalClose::before,
+.imageModalClose::after {
+  content: "";
+
+  position: absolute;
+
+  width: 18px;
+  height: 2px;
+
+  background: white;
+  border-radius: 999px;
+}
+
+.imageModalClose::before {
+  transform: rotate(45deg);
+}
+
+.imageModalClose::after {
+  transform: rotate(-45deg);
+}
+
+@media (max-width: 576px) {
+  .imageModal {
+    padding: 12px;
+  }
+
+  .imageModalImg {
+    max-width: 96vw;
+    max-height: 86vh;
+  }
+}

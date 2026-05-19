@@ -115,7 +115,7 @@
   }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 757px) {
   .ribbonBanner {
     position: absolute;
     top: 10px;

@@ -1,0 +1,39 @@
+.scrollTopButton {
+  position: fixed;
+  right: 50px;
+  bottom: 100px;
+  z-index: 400;
+
+  width: 46px;
+  height: 46px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid var(--border);
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--text-main);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  font-size: 25px;
+  font-weight: 900;
+
+  cursor: pointer;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+}
+
+.app.light .scrollTopButton {
+  background: rgba(255, 255, 255, 0.78);
+}
+
+@media (max-width: 757px) {
+  .scrollTopButton {
+    right: 16px;
+    bottom: 82px;
+  }
+}

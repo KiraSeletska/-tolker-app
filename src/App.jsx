@@ -14,9 +14,15 @@ import logoDark from "./assets/bfdark.png";
 import olesiaPortrait from "./assets/olesia-portrait.png";
 import { translations } from "./translations";
 import RibbonBanner from "./components/RibbonBanner";
+import MobileQuickNav from "./components/MobileQuickNav";
+import ImageModal from "./components/ImageModal";
+import ScrollTopButton from "./components/ScrollTopButton";
 
 
 function App() {
+
+  const [openedImage, setOpenedImage] = useState(null);
+
   const getDefaultLanguage = () => {
     const browserLang = navigator.language.slice(0, 2);
     const supported = ["de", "ru", "uk", "en"];
@@ -33,7 +39,6 @@ function App() {
   const [language, setLanguage] = useState(getDefaultLanguage);
   const [theme, setTheme] = useState(getDefaultTheme);
   const [activeReview, setActiveReview] = useState(0);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const t = translations[language];
   const logo = theme === "light" ? logoLight : logoDark;
@@ -95,33 +100,9 @@ function App() {
           </button>
         </div>
 
-        <button
-          className="menuButton"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          aria-label="Menu"
-        >
-          {isMenuOpen ? "×" : "☰"}
-        </button>
       </header>
-
-      <nav className={`mobileNav ${isMenuOpen ? "navOpen" : ""}`}>
-        <a href="#about" onClick={() => setIsMenuOpen(false)}>
-          {t.navAbout}
-        </a>
-        <a href="#interpreter" onClick={() => setIsMenuOpen(false)}>
-          {t.navInterpreter}
-        </a>
-        <a href="#services" onClick={() => setIsMenuOpen(false)}>
-          {t.navServices}
-        </a>
-        <a href="#reviews" onClick={() => setIsMenuOpen(false)}>
-          {t.navReviews}
-        </a>
-        <a href="#contacts" onClick={() => setIsMenuOpen(false)}>
-          {t.navContacts}
-        </a>
-      </nav>
-
+<MobileQuickNav />
+<ScrollTopButton />
       <main>
         <section id="home" className="section heroSection">
           <div className="heroContent">
@@ -219,7 +200,12 @@ function App() {
 
           <div className="servicesGrid">
             <div className="priceWrapper">
-              <img src={priceImageFile} alt="TOLKER price list" />
+              <img
+  src={priceImageFile}
+  alt="TOLKER price list"
+  className="clickableImage"
+  onClick={() => setOpenedImage(priceImageFile)}
+/>
             </div>
 
             <div className="servicesInfo">
@@ -250,50 +236,57 @@ function App() {
           </div>
         </section>
 
-        <section id="reviews" className="section cardSection">
-          <div className="sectionHeader">
-            <p className="sectionLabel">04</p>
-            <h2>{t.reviewsTitle}</h2>
-            <p>{t.reviewsText}</p>
-          </div>
+<section id="reviews" className="section cardSection">
+  <div className="sectionHeader">
+    <p className="sectionLabel">04</p>
+    <h2>{t.reviewsTitle}</h2>
+    <p>{t.reviewsText}</p>
+  </div>
 
-          <div className="reviewsGrid">
-            <div className="reviewsInfoCard">
-              <h3>{t.reviewsSideTitle}</h3>
-              <p>{t.reviewsSideText}</p>
+  <div className="reviewsGrid">
+    <div className="reviewsInfoCard">
+      <h3>{t.reviewsSideTitle}</h3>
+      <p>{t.reviewsSideText}</p>
 
-              <ul>
-                <li>{t.reviewsSidePoint1}</li>
-                <li>{t.reviewsSidePoint2}</li>
-                <li>{t.reviewsSidePoint3}</li>
-              </ul>
-            </div>
+      <ul>
+        <li>{t.reviewsSidePoint1}</li>
+        <li>{t.reviewsSidePoint2}</li>
+        <li>{t.reviewsSidePoint3}</li>
+      </ul>
+    </div>
 
-            <div className="reviewCarousel">
-              <button
-                className="carouselButton"
-                onClick={() =>
-                  setActiveReview(
-                    (activeReview - 1 + reviews.length) % reviews.length,
-                  )
-                }
-              >
-                ‹
-              </button>
+    <div className="reviewCarousel">
+      <button
+        type="button"
+        className="carouselButton"
+        onClick={() =>
+          setActiveReview(
+            (activeReview - 1 + reviews.length) % reviews.length
+          )
+        }
+      >
+        ‹
+      </button>
 
-              <img src={reviews[activeReview]} alt={`Review ${activeReview + 1}`} />
+      <img
+        src={reviews[activeReview]}
+        alt={`Review ${activeReview + 1}`}
+        className="clickableImage"
+        onClick={() => setOpenedImage(reviews[activeReview])}
+      />
 
-              <button
-                className="carouselButton"
-                onClick={() =>
-                  setActiveReview((activeReview + 1) % reviews.length)
-                }
-              >
-                ›
-              </button>
-            </div>
-          </div>
-        </section>
+      <button
+        type="button"
+        className="carouselButton"
+        onClick={() =>
+          setActiveReview((activeReview + 1) % reviews.length)
+        }
+      >
+        ›
+      </button>
+    </div>
+  </div>
+</section>
 
         <section id="contacts" className="section contactSection">
           <div className="sectionHeader">
@@ -343,22 +336,23 @@ function App() {
   >
     <FaFacebook />
   </a>
-  <a
-    href="#"
-    onClick={(e) => e.preventDefault()}
-    aria-label="Instagram"
-  >
-    <FaInstagram />
-  </a>
+<a
+  href="https://www.instagram.com/tolker.de"
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="Instagram"
+>
+  <FaInstagram />
+</a>
 
-
-  <a
-    href="#"
-    onClick={(e) => e.preventDefault()}
-    aria-label="LinkedIn"
-  >
-    <FaLinkedin />
-  </a>
+<a
+  href="https://www.linkedin.com/company/tolker-de"
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="LinkedIn"
+>
+  <FaLinkedin />
+</a>
 
   <a
     href={vcardFile}
@@ -392,7 +386,35 @@ function App() {
             </div>
           </div>
         </section>
+           <section className="seoSection">
+
+          <p>
+
+            TOLKER — Sprachmittlung und Begleitung in Deutschland.
+
+            Übersetzung und Unterstützung für ukrainisch- und russischsprachige Menschen
+
+            in Traunstein, Traunreut, Rosenheim, München und deutschlandweit.
+
+            Hilfe bei Arztterminen, Jobcenter, Krankenkasse,
+
+            Ausländerbehörde und Dokumenten
+
+          </p>
+
+        </section>
       </main>
+      <ImageModal
+
+        src={openedImage}
+
+        alt="TOLKER document"
+
+        isOpen={Boolean(openedImage)}
+
+        onClose={() => setOpenedImage(null)}
+
+      />
     </div>
   );
 }
